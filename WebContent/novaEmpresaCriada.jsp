@@ -2,7 +2,7 @@
 por isso é Java Server Page = executado no servidor -->
 
 <%
-	String nomeEmpresa = "Alura";
+	String nomeEmpresa = (String)request.getAttribute("empresa");
 	System.out.println(nomeEmpresa);
 %>
 
