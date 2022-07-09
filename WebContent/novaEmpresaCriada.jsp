@@ -1,16 +1,7 @@
-<!-- O código abaixo é JSP, ele não aparece no navegador por que ele está sendo executado no lado do Servidor
-por isso é Java Server Page = executado no servidor -->
-
-<%
-	String nomeEmpresa = (String)request.getAttribute("empresa");
-	System.out.println(nomeEmpresa);
-%>
-
-
 <html>
 	<body>
-	<!-- Essa parte do scriptlet <%%> também será executada no lado do servidor -->
-		Empresa <%= nomeEmpresa %> cadastrada com sucesso!
+		<!-- ${empresa} é o mesmo que fazer getAttribute("empresa") só que bem mais simples e faz um código limpo -->
+		Empresa ${empresa} cadastrada com sucesso!<!-- pega o attribute("empresa") -->
 	</body>
 </html>	
 
