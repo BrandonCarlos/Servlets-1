@@ -1,6 +1,6 @@
 <html>
 	<body>
-		<!-- ${empresa} é o mesmo que fazer getAttribute("empresa") só que bem mais simples e faz um código limpo -->
+		<!-- ${empresa} ï¿½ o mesmo que fazer getAttribute("empresa") sï¿½ que bem mais simples e faz um cï¿½digo limpo -->
 		Empresa ${empresa} cadastrada com sucesso!<!-- pega o attribute("empresa") -->
 	</body>
 </html>	
