@@ -5,15 +5,24 @@
 
 <html>
 <body>
+	<c:if test="${not empty empresa}">
+		<!-- ${empresa} ï¿½ o mesmo que fazer getAttribute("empresa") sï¿½ que bem mais simples e faz um cï¿½digo limpo -->
+		Empresa ${empresa} cadastrada com sucesso!<!-- pega o attribute("empresa") -->
+	</c:if>
+
+	<h1>Lista de empresas:</h1>
 
 	<ul>
-	<!-- Estamos utilizando tag especial ForEach, más antes devemos importar o JSTL -->
-		<c:forEach items="${empresas}" var="empresa"><!-- getAttribute("empresas") de forma automática -->
-		
-			<li>${empresa.nome} - <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy"/></li><!-- Por debaixo dos panos está chamando o empresa.getNome(), só que áqui é de forma mais
+		<!-- Estamos utilizando tag especial ForEach, más antes devemos importar o JSTL -->
+		<c:forEach items="${empresas}" var="empresa">
+			<!-- getAttribute("empresas") de forma automática -->
+
+			<li>${empresa.nome}- <fmt:formatDate
+					value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" /></li>
+			<!-- Por debaixo dos panos está chamando o empresa.getNome(), só que áqui é de forma mais
 			simples -->
 		</c:forEach>
 	</ul>
-	
+
 </body>
 </html>

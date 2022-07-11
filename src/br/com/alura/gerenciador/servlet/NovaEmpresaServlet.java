@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class NovaEmpresaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		System.out.println("Cadastrando nova empresa");
 		String nomeDaEmpresa = request.getParameter("nome");
@@ -39,16 +39,11 @@ public class NovaEmpresaServlet extends HttpServlet {
 		banco.adiciona(empresa);
 		
 		//chamar o JSP, vamos dispachar a requisição para o JSP, e como se tivesse falando agora vai lá no 
-		//JSP
-		RequestDispatcher rd = request.getRequestDispatcher("/novaEmpresaCriada.jsp");
-		//agora falta falar pro dispachador "vai" para ele entregar essa requisição lá no JSP
-		//no request vamos pendurar o nome da empresa para podermos pegar lá no servlet, utilizando Sting
-		//empresa
+		//outro Servlet
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");//agora o servlet chama outro servlet
 		request.setAttribute("empresa", empresa.getNome());
 		request.setAttribute("dataAbertura", empresa.getDataAbertura());
-		rd.forward(request, response);//estamos entregando o request e response pro dispachador e podemos
-		//usar esses recursos lá no JSP
-		
+		rd.forward(request, response);
 	}
 
 }

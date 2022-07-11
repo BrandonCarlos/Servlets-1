@@ -15,13 +15,13 @@ import javax.servlet.http.HttpServletResponse;
 public class ListaEmpresasServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	//mudando o método sobreescrito para "service" assim atende tanto GET quanto POST
+	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Banco banco = new Banco();
 		List<Empresa> lista = banco.getEmpresas();
-		RequestDispatcher rd = request.getRequestDispatcher("listaEmpresas.jsp");//motoboy se prepara e
-		//vai colocando a localidade para listaEmpresas.jsp pois é lá que ele irá fazer a entrega da "LISTA"
-		request.setAttribute("empresas", lista);//apelido será "lista" e estou mandando a lista de empresas p/ o JSP percorrer
+		RequestDispatcher rd = request.getRequestDispatcher("listaEmpresas.jsp");//agora o servlet chama outro servlet
+		request.setAttribute("empresas", lista);
 		rd.forward(request, response);
 	}
 
