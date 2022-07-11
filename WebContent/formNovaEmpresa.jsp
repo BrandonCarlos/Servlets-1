@@ -10,7 +10,8 @@
 
 <!-- Quando enviar os dados, manda os dados para o servlet /gerenciador, e no servlet eu capturo esses dados -->
 	<form action="${linkServletNovaEmpresa}" method="POST">
-		Nome: <input type="text" name="nome"/>
+		Nome: <input type="text" name="nome" placeholder="Digite o nome"/>
+		Data Abertura: <input type="text" name="data"/>
 		<input type="submit"/>		
 	</form>
 </body>

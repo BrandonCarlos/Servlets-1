@@ -2,6 +2,9 @@ package br.com.alura.gerenciador.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,8 +22,18 @@ public class NovaEmpresaServlet extends HttpServlet {
 
 		System.out.println("Cadastrando nova empresa");
 		String nomeDaEmpresa = request.getParameter("nome");
+		String  paramDataEmpresa = request.getParameter("data");//getParameter só pega dados String
+		Date dataAbertura = null;
+		try {
+			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");//object que sabe formatar/parsear
+			dataAbertura = sdf.parse(paramDataEmpresa);
+		} catch (ParseException e) {
+			throw new ServletException(e);//customizando a exception
+		}
+		
 		Empresa empresa = new Empresa();
 		empresa.setNome(nomeDaEmpresa);
+		empresa.setDataAbertura(dataAbertura);
 		
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
@@ -32,6 +45,7 @@ public class NovaEmpresaServlet extends HttpServlet {
 		//no request vamos pendurar o nome da empresa para podermos pegar lá no servlet, utilizando Sting
 		//empresa
 		request.setAttribute("empresa", empresa.getNome());
+		request.setAttribute("dataAbertura", empresa.getDataAbertura());
 		rd.forward(request, response);//estamos entregando o request e response pro dispachador e podemos
 		//usar esses recursos lá no JSP
 		
