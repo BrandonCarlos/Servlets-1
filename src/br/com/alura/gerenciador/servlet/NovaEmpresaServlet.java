@@ -38,13 +38,18 @@ public class NovaEmpresaServlet extends HttpServlet {
 		Banco banco = new Banco();
 		banco.adiciona(empresa);
 		
+		request.setAttribute("empresa", empresa.getNome());
+		
+		response.sendRedirect("listaEmpresas");//navegador recebe a resposta e envia a nova requisição
+		//OBS: aqui não precisamos colocar a barra /
+		
 		//chamar o JSP, vamos dispachar a requisição para o JSP, e como se tivesse falando agora vai lá no 
 		//outro Servlet
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");//lá no servlet "listaEmpresasServlet.java"
-		//manda as váriaveis empresa e dataAbertura
-		request.setAttribute("empresa", empresa.getNome());
-		request.setAttribute("dataAbertura", empresa.getDataAbertura());
-		rd.forward(request, response);
+//		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");//lá no servlet "listaEmpresasServlet.java"
+//		//manda as váriaveis empresa e dataAbertura
+//		request.setAttribute("empresa", empresa.getNome());
+//		request.setAttribute("dataAbertura", empresa.getDataAbertura());
+//		rd.forward(request, response);
 	}
 
 }
