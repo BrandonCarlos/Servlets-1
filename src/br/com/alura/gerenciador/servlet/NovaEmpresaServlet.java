@@ -40,7 +40,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		request.setAttribute("empresa", empresa.getNome());
 		
-		response.sendRedirect("listaEmpresas");//navegador recebe a resposta e envia a nova requisição
+		response.sendRedirect("listaEmpresas");//navegador recebe a resposta e envia a nova requisição de leitura
+		//ou seja não poderemos fazer alterações quando der F5, somente leitura
 		//OBS: aqui não precisamos colocar a barra /
 		
 		//chamar o JSP, vamos dispachar a requisição para o JSP, e como se tivesse falando agora vai lá no 

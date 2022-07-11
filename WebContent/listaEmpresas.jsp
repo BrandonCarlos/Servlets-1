@@ -17,8 +17,10 @@
 		<c:forEach items="${empresas}" var="empresa">
 			<!-- getAttribute("empresas") de forma automática -->
 
-			<li>${empresa.nome}- <fmt:formatDate
-					value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" /></li>
+			<li>
+			${empresa.nome}- <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" />
+			<a href="/gerenciador/removeEmpresa?id=${empresa.id}">remove</a>
+			</li>
 			<!-- Por debaixo dos panos está chamando o empresa.getNome(), só que áqui é de forma mais
 			simples -->
 		</c:forEach>
