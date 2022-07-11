@@ -40,7 +40,8 @@ public class NovaEmpresaServlet extends HttpServlet {
 		
 		//chamar o JSP, vamos dispachar a requisição para o JSP, e como se tivesse falando agora vai lá no 
 		//outro Servlet
-		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");//agora o servlet chama outro servlet
+		RequestDispatcher rd = request.getRequestDispatcher("/listaEmpresas");//lá no servlet "listaEmpresasServlet.java"
+		//manda as váriaveis empresa e dataAbertura
 		request.setAttribute("empresa", empresa.getNome());
 		request.setAttribute("dataAbertura", empresa.getDataAbertura());
 		rd.forward(request, response);
