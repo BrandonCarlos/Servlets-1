@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet(urlPatterns="/oi") //com o WebServlet estamos declarando servlet OiMundoServlet se chama /oi
 public class OiMundoServlet extends HttpServlet{//oiMundoServlet é um Servlet
+	
+	public OiMundoServlet() {//servlet é criado apenas 1 vez, e vive para sempre
+		System.out.println("Criando Oi Mundo Servlet");
+	}
 
 	@Override //service abaixo é um método da class HttpServlet que estamos sobreescrevendo
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws IOException {
