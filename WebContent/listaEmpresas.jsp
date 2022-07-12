@@ -19,6 +19,7 @@
 
 			<li>
 			${empresa.nome}- <fmt:formatDate value="${empresa.dataAbertura}" pattern="dd/MM/yyyy" />
+			<a href="/gerenciador/mostraEmpresa?id=${empresa.id}">edita</a><!-- assim que clicar no link direciona p/ o servlet -->
 			<a href="/gerenciador/removeEmpresa?id=${empresa.id}">remove</a>
 			</li>
 			<!-- Por debaixo dos panos está chamando o empresa.getNome(), só que áqui é de forma mais
